@@ -7,9 +7,9 @@
 - ```$git init```  Initialize a git local repo
 - ```$git clone```  Download a project from remote
 - ```$git add```  Prepare a file (to staging)
-- ```$git add .```  Adds all files not being tracked
+  - ```$git add .```  Adds all files not being tracked
 - ```$git commit```  Commit a file to the repo
-- ```$git commit -m “My message”```
+  - ```$git commit -m “My message”```
 - ```$git status```  Gets the status of the current location
 - ```$ls -la```  List files in the directory
 - ```$git remote -v```  Determine if a remote configured currently
