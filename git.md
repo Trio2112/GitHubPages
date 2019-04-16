@@ -13,7 +13,7 @@
 - [Notifications](#notifications)
 
 
-## Basic Commands
+## Basic Commands <sup><sub>[(back to top)](#git)</sub></sup>
 - https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html
 - ```$git```  It all starts with “git”
 - ```$git config```  Configure the tooling
@@ -30,14 +30,14 @@
 - ```$git push -u origin master```  Push local content to the remote reference. The -u is used to create a tracking relation between what the local master and the origin
 
 
-## Locations in git
+## Locations in git <sup><sub>[(back to top)](#git)</sub></sup>
 - Working directory
 - Staging area
 - .git repo (local)
 - GitHub repo (remote)
 
 
-## Configure SSH Key
+## Configure SSH Key <sup><sub>[(back to top)](#git)</sub></sup>
 - Generate the SSH key on the client  by:
 
    ```ssh-keygen -t rsa -b 4096 -C “brent_muhlestein@yahoo.com”```
@@ -70,7 +70,7 @@
   https://daringfireball.net/projects/markdown/syntax
   
   
-## Working with repositories
+## Working with repositories <sup><sub>[(back to top)](#git)</sub></sup>
 - ```$git clone``` Creates a full, local copy on your machine of the remote/upstream repository, includes branches and the default, active branch.
 
   Example: ```$git clone <<paste URL copied from the clone button in github>>```
@@ -82,12 +82,12 @@
   Example: ```$git push origin master```
 
 
-## Bringing in more people
+## Bringing in more people <sup><sub>[(back to top)](#git)</sub></sup>
 - Collaborators: A fixed group of people comprising the core development team working on a project. They typically have more permission on the repository, such as the ability to commit code in the main repository.
 - Contributors: Everyone outside of the core team, such as someone who uses your projects in their daily work and is proposing a change or improvement. They can’t commit to your main branch. Their changes come in the form of pull requests that can then be reviewed.
 
 
-## The commands for branching
+## The commands for branching <sup><sub>[(back to top)](#git)</sub></sup>
 - ```$git branch [branch-name]```
 - ```$git checkout -b [branch-name]``` will create a new branch and automatically switch you to that branch.
 - ```$git push -u [origin] [branch]```
@@ -103,7 +103,7 @@
     ```$git clone -b my-test-branch --single-branch https://github.com/Trio2112/firstrepo.git my-test-branch```
 
 
-## Tags
+## Tags <sup><sub>[(back to top)](#git)</sub></sup>
 - ```$git log```  Shows a log of commits for the repository you’re pointing to. Type q to quit/exit out of log mode.
 - ```$git tag```  Shows the tags for the repository you’re pointing to. No output means there’s no tags.
 - ```$git tag my-tag-name branch-to-use```  Adds a tag named “my-tag-name” to the “branch-to-use” branch.
@@ -113,12 +113,12 @@
 - ```$git tag -d “v0.2”```  Deletes the tag “v0.2”
 
 
-## Gists
+## Gists <sup><sub>[(back to top)](#git)</sub></sup>
 - A simple way to share snippets and notes with others, similar to Pastebin.
 - Access by going to https://gist.github.com.
 
 
-## GitHub Pages
+## GitHub Pages <sup><sub>[(back to top)](#git)</sub></sup>
 - Static site hosting without server-side code
 - Could be a personal blog or website
 - Site is effectively a repository
@@ -126,7 +126,7 @@
 - Enable by going to Settings > GitHub Pages
 
 
-## Notifications
+## Notifications <sup><sub>[(back to top)](#git)</sub></sup>
 - Types of notifications
   - Participating notifications - notifications that come from repos your participating in or mentioned in
   - Watching notifications - notifications for repos that you have explicitly set to watch
