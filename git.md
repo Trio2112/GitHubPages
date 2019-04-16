@@ -1,5 +1,17 @@
 # Git
 
+- [Basic Commands](#basic-commands)
+- [Locations in git](#locations-in-git)
+- [Configure SSH Key](#configure-ssh-key)
+- [Special files](#special-files)
+- [Working with repositories](#working-with-repositories)
+- [Bringing in more people](#bringing-in-more-people)
+- [The commands for branching](#the-commands-for-branching)
+- [Tags](#tags)
+- [Gists](#gists)
+- [GitHub Pages](#github-pages)
+- [Notifications](#notifications)
+
 
 ## Basic Commands
 - https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html
