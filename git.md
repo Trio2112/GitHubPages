@@ -126,7 +126,7 @@
 - Enable by going to Settings > GitHub Pages
 
 
-## Notifications <sup><sub><a id="notifications_anchor"></a></sub></sup>
+## Notifications<a id="notifications_anchor"></a> <sup><sub>[(back to top)](#git)</sub></sup>
 - Types of notifications
   - Participating notifications - notifications that come from repos your participating in or mentioned in
   - Watching notifications - notifications for repos that you have explicitly set to watch
