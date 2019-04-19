@@ -1,19 +1,19 @@
 # Git
 
-- [Basic Commands](#basic-commands)
-- [Locations in git](#locations-in-git)
-- [Configure SSH Key](#configure-ssh-key)
-- [Special files](#special-files)
-- [Working with repositories](#working-with-repositories)
-- [Bringing in more people](#bringing-in-more-people)
-- [The commands for branching](#the-commands-for-branching)
-- [Tags](#tags)
-- [Gists](#gists)
-- [GitHub Pages](#github-pages)
+- [Basic Commands](#basic-commands_anchor)
+- [Locations in git](#locations-in-git_anchor)
+- [Configure SSH Key](#configure-ssh-key_anchor)
+- [Special files](#special-files_anchor)
+- [Working with repositories](#working-with-repositories_anchor)
+- [Bringing in more people](#bringing-in-more-people_anchor)
+- [The commands for branching](#the-commands-for-branching_anchor)
+- [Tags](#tags_anchor)
+- [Gists](#gists_anchor)
+- [GitHub Pages](#github-pages_anchor)
 - [Notifications](#notifications_anchor)
 
 
-## Basic Commands <sup><sub>[(back to top)](#git)</sub></sup>
+## Basic Commands<a id="basic-commands_anchor"></a> <sup><sub>[(back to top)](#git)</sub></sup>
 - https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html
 - ```$git```  It all starts with “git”
 - ```$git config```  Configure the tooling
@@ -30,14 +30,14 @@
 - ```$git push -u origin master```  Push local content to the remote reference. The -u is used to create a tracking relation between what the local master and the origin
 
 
-## Locations in git <sup><sub>[(back to top)](#git)</sub></sup>
+## Locations in git<a id="locations-in-git_anchor"></a> <sup><sub>[(back to top)](#git)</sub></sup>
 - Working directory
 - Staging area
 - .git repo (local)
 - GitHub repo (remote)
 
 
-## Configure SSH Key <sup><sub>[(back to top)](#git)</sub></sup>
+## Configure SSH Key<a id="configure-ssh-key_anchor"></a> <sup><sub>[(back to top)](#git)</sub></sup>
 - Generate the SSH key on the client  by:
 
    ```ssh-keygen -t rsa -b 4096 -C “brent_muhlestein@yahoo.com”```
@@ -50,7 +50,7 @@
    ```ssh -T git@github.com```
    
    
-## Special files <sup><sub>[(back to top)](#git)</sub></sup>
+## Special files<a id="special-files_anchor"></a> <sup><sub>[(back to top)](#git)</sub></sup>
 - readme.md
   - Can be located in root, .github, or docs folder
   - Rendered automatically on landing page
@@ -70,7 +70,7 @@
   https://daringfireball.net/projects/markdown/syntax
   
   
-## Working with repositories <sup><sub>[(back to top)](#git)</sub></sup>
+## Working with repositories<a id="working-with-repositories_anchor"></a> <sup><sub>[(back to top)](#git)</sub></sup>
 - ```$git clone``` Creates a full, local copy on your machine of the remote/upstream repository, includes branches and the default, active branch.
 
   Example: ```$git clone <<paste URL copied from the clone button in github>>```
@@ -82,12 +82,12 @@
   Example: ```$git push origin master```
 
 
-## Bringing in more people <sup><sub>[(back to top)](#git)</sub></sup>
+## Bringing in more people<a id="bringing-in-more-people_anchor"></a> <sup><sub>[(back to top)](#git)</sub></sup>
 - Collaborators: A fixed group of people comprising the core development team working on a project. They typically have more permission on the repository, such as the ability to commit code in the main repository.
 - Contributors: Everyone outside of the core team, such as someone who uses your projects in their daily work and is proposing a change or improvement. They can’t commit to your main branch. Their changes come in the form of pull requests that can then be reviewed.
 
 
-## The commands for branching <sup><sub>[(back to top)](#git)</sub></sup>
+## The commands for branching<a id="the-commands-for-branching_anchor"></a> <sup><sub>[(back to top)](#git)</sub></sup>
 - ```$git branch [branch-name]```
 - ```$git checkout -b [branch-name]``` will create a new branch and automatically switch you to that branch.
 - ```$git push -u [origin] [branch]```
@@ -103,7 +103,7 @@
     ```$git clone -b my-test-branch --single-branch https://github.com/Trio2112/firstrepo.git my-test-branch```
 
 
-## Tags <sup><sub>[(back to top)](#git)</sub></sup>
+## Tags<a id="tags_anchor"></a> <sup><sub>[(back to top)](#git)</sub></sup>
 - ```$git log```  Shows a log of commits for the repository you’re pointing to. Type q to quit/exit out of log mode.
 - ```$git tag```  Shows the tags for the repository you’re pointing to. No output means there’s no tags.
 - ```$git tag my-tag-name branch-to-use```  Adds a tag named “my-tag-name” to the “branch-to-use” branch.
@@ -113,12 +113,12 @@
 - ```$git tag -d “v0.2”```  Deletes the tag “v0.2”
 
 
-## Gists <sup><sub>[(back to top)](#git)</sub></sup>
+## Gists<a id="gists_anchor"></a> <sup><sub>[(back to top)](#git)</sub></sup>
 - A simple way to share snippets and notes with others, similar to Pastebin.
 - Access by going to https://gist.github.com.
 
 
-## GitHub Pages <sup><sub>[(back to top)](#git)</sub></sup>
+## GitHub Pages<a id="github-pages_anchor"></a> <sup><sub>[(back to top)](#git)</sub></sup>
 - Static site hosting without server-side code
 - Could be a personal blog or website
 - Site is effectively a repository
