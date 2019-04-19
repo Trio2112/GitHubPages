@@ -10,7 +10,7 @@
 - [Tags](#tags)
 - [Gists](#gists)
 - [GitHub Pages](#github-pages)
-- [Notifications](#notifications)
+- [Notifications](#notifications_anchor)
 
 
 ## Basic Commands <sup><sub>[(back to top)](#git)</sub></sup>
@@ -126,7 +126,7 @@
 - Enable by going to Settings > GitHub Pages
 
 
-## Notifications <sup><sub>[(back to top)](#git)</sub></sup>
+## Notifications <sup><sub><a id="notifications_anchor"></a></sub></sup>
 - Types of notifications
   - Participating notifications - notifications that come from repos your participating in or mentioned in
   - Watching notifications - notifications for repos that you have explicitly set to watch
