@@ -46,15 +46,39 @@
     - https://.../api/Customers
     - https://.../api/Games
     - https://.../api/Invoices
-  - Use identifiers to locate individual items in URIs.
-    - Does not have to be an internal key. It can be something else but has to be unique for the item.
-      - https://.../api/Customers/123
-      - https://.../api/Games/halo-3
-      - https://.../api/Invoices/2003-01-24
-  - Use HTTP verbs
-    ![useful image](/assets/images/WebAPIDesign/image01.png)
-    - **GET**: Retrieve a resource
-    - **POST**: Add a new resource
-    - **PUT**: Update an existing resource (updates the entire resource)
-    - **PATCH**: Update an existing resource with set of changes (only updates certain fields of the resource)
-    - **DELETE**: Remove the existing resource
+- Use identifiers to locate individual items in URIs.
+  - Does not have to be an internal key. It can be something else but has to be unique for the item.
+    - https://.../api/Customers/123
+    - https://.../api/Games/halo-3
+    - https://.../api/Invoices/2003-01-24
+- Use HTTP verbs
+  ![useful image](/assets/images/WebAPIDesign/image01.png)
+  - **GET**: Retrieve a resource
+  - **POST**: Add a new resource
+  - **PUT**: Update an existing resource (updates the entire resource)
+  - **PATCH**: Update an existing resource with set of changes (only updates certain fields of the resource)
+  - **DELETE**: Remove the existing resource
+- What should each verb return?
+  ![useful image](/assets/images/WebAPIDesign/image02.png)
+- Status codes to return
+  - Typically a well-designed API returns 8 - 10 different status codes.
+  - Use the following, at a minimum:
+    ![useful image](/assets/images/WebAPIDesign/image03.png)
+  - Other status codes that could be used:<br/>
+    ![useful image](/assets/images/WebAPIDesign/image04.png)<br/>
+    NOTE: 304 is used with caching to indicate the object you requested has not changed since you last requested it.
+  - Here's a complete lising of status codes:
+    ![useful image](/assets/images/WebAPIDesign/image05.png)
+- Use URI navigation to get associated sub-objects:
+  - Examples
+    - https://.../api/Customers/123/Invoices
+    - https://.../api/Invoices/2003-10-24/Payments
+  - The following should return the same shape list of invoices:
+    - https://.../api/Customers/123/Invoices
+    - https://.../api/Invoices
+- Anything more complex should use querystring
+  - Examples
+    - https://.../api/Customers?state=GA
+    - https://.../api/Customers?state=GA&salesperson=144
+    - https://.../api/Customers?hasOpenOrders=true
+
