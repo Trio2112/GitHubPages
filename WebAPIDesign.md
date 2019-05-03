@@ -155,12 +155,12 @@
     - Can mean more technical debt to the backend of your project
 - Content Negotiation (version is included in the Accept Header)
   - Content Type: application/vnd.mycompany.**1**.param+json
-  - Instead of using a standard MIME type in the Accept Header of the request, use a custom type/value.
+  - Instead of using a standard MIME type in the Accept Header of the request, use a custom type/value.<br/>
     ![useful image](/assets/images/WebAPIDesign/image14.png)<br/>
-  - Can include information in Accept Header for formatting too:
+  - Can include information in Accept Header for formatting too:<br/>
     ![useful image](/assets/images/WebAPIDesign/image15.png)<br/>
   - This type of versioning is becoming increasingly popular because the versioning is separate from the surface area of the API itself.
-  - Alternatively, you can create your own MIME type. The standard indicates you can begin the value with “vnd” (meaning vendor).
+  - Alternatively, you can create your own MIME type. The standard indicates you can begin the value with “vnd” (meaning vendor).<br/>
     ![useful image](/assets/images/WebAPIDesign/image16.png)<br/>
   - Pro(s):
     - The API and resource versioning are packaged together
