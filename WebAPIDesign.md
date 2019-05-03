@@ -31,3 +31,30 @@
   - There is a lot to learn from REST-style architecture, but being pragmatic is important too.
 
 ## Resource-based Architectures
+
+- Resources are representations of real-world objects or entities (nouns).
+- Relationships between the resources are typically nested down a path of those resources. (ie /Customer/123/Orders/456/OrderItems/
+- You should think of these as hierarchies of information, not necessarily as relational models, because the kind of data you are going to be dealing with is going to be hierarchical, not relational models like you would see in database tables.
+- URIs are paths to resources.
+- Querystrings are used for non-data elements. They don’t represent verbs. They can be used for different purposes like sorting or filtering.
+
+## Principles of URI Design
+
+- Nouns are good, verbs are bad
+- URIs should point at nouns
+  - Prefer plurals
+    - https://.../api/Customers
+    - https://.../api/Games
+    - https://.../api/Invoices
+  - Use identifiers to locate individual items in URIs.
+    - Does not have to be an internal key. It can be something else but has to be unique for the item.
+      - https://.../api/Customers/123
+      - https://.../api/Games/halo-3
+      - https://.../api/Invoices/2003-01-24
+  - Use HTTP verbs
+    ![useful image](/assets/images/WebAPIDesign/image01.png)
+    - **GET**: Retrieve a resource
+    - **POST**: Add a new resource
+    - **PUT**: Update an existing resource (updates the entire resource)
+    - **PATCH**: Update an existing resource with set of changes (only updates certain fields of the resource)
+    - **DELETE**: Remove the existing resource
