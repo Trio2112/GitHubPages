@@ -81,4 +81,48 @@
     - https://.../api/Customers?state=GA
     - https://.../api/Customers?state=GA&salesperson=144
     - https://.../api/Customers?hasOpenOrders=true
+- Formatting Results
+  - Content negotiation is a best practice
+  - Use the Accept header to determine how to format. The Accept header can have a comma-delimited list of formats the client supports<br/>
+    ![useful image](/assets/images/WebAPIDesign/image06.png)<br/>
+  - Not necessary to support all
+  - Have a sane default
+  - Content/Mime Types<br/>
+    ![useful image](/assets/images/WebAPIDesign/image07.png)<br/>
+- ETags when making a request support caching
+  - Within the 200 response is a header named ETag. The value is a version number of the object<br/>
+    ![useful image](/assets/images/WebAPIDesign/image08.png)<br/>
+  - The client can then send the ETag back to see if a new version is available. This is done using the If-None-Match header and part of the Get.<br/>
+    ![useful image](/assets/images/WebAPIDesign/image09.png)<br/>
+  - If a new version does not exist, then the server will return a 304 (Not Modified) status with an empty body.
+- ETags when updating data support concurrency
+  - When doing a put, use the If-Match header with the version number to only update the object if the given version number is the latest.<br/>
+    ![useful image](/assets/images/WebAPIDesign/image10.png)<br/>
+  - If a Put with the If-Match header fails, then the server returns a 412 status code (Precondition Failed). The updates doesn’t happen if the precondition fails.<br/>
+    ![useful image](/assets/images/WebAPIDesign/image11.png)<br/>
+- Paging
+  - Lists should always support paging. Use query string parameters to request paging information.
+  - The returned object wrapper can indicate next/prev links.<br/>
+    ![useful image](/assets/images/WebAPIDesign/image12.png)<br/>
+  - The returned wrapper can also indicate the page size.<br/>
+    https://.../api/games?page=5&pageSize=50
+- Getting Partial Items
+  - Query string is a common pattern for requesting parts.<br/>
+    https://.../api/games/123?fields=id,name,price,imageURL
+- Updating Partial Items
+  - Use the PATCH HTTP verb to update a partial (with ETag support).
+  - The following updates a sub-set of the fields the belong to the object:<br/>
+    ![useful image](/assets/images/WebAPIDesign/image13.png)<br/>
+- Non-Resource APIs?
+  - Be pragmatic and make sure that these parts of your API are documented
+  - Be sure that the user can tell it is a different type of operation
+  - Should be completely functional
+  - Don’t use them as an excuse to build a RPC API
+  - Example:
+    - https://.../api/calculateTax?state=GA&total=149.99
+    - https://.../api/restartServer?isColdBoot=true
+    - https://.../api/executeOrder66?includeYounglings=true
+
+## Versioning
+
 
