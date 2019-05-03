@@ -125,4 +125,68 @@
 
 ## Versioning
 
+- Why version?
+  - Publishing an API is not a trivial move
+  - Users/customers rely on the API not changing
+  - But requirements will change
+  - Need a way to evolve the API without breaking existing clients
+  - API Versioning isn’t Product Versioning -- try not to tie the two together!
+  - API Commandment: **THOU SHALL NOT BREAK EXISTING CLIENTS!**
+- There is no one, right way to version your API. What is right depends on your needs and situation.
+- URI Path - Using part of your path to version
+  - Example: https://.../api/v2/user
+  - Allows you to drastically change the API in later versions. Everything below the version is subject to change.
+  - One of the most common patterns.
+  - Pro(s):
+    - Simple to segregate old APIs for backwards compatibility
+    - Easier to implement
+  - Con(s):
+    - Requires lots of client changes as you version (e.g. version # has to change in every client)
+    - Increases the size of the URI surface are you have to support -- may be a larger amount of technical debt you have to continue to support
+- URI Parameter
+  - https://.../api/catalog/titles/series/70023522?v=1.5
+  - The version is passed as an optional querystring parameter, with the default being the latest version.
+  - Pro(s):
+    - Without version, users always get the latest version of API
+    - There is little client change as the versions mature, if the client does not pass a specific version number (and relies on the default).
+    - Easier to implement
+  - Con(s):
+    - Can surprise developers with unintended changes
+    - Can mean more technical debt to the backend of your project
+- Content Negotiation (version is included in the Accept Header)
+  - Content Type: application/vnd.mycompany.**1**.param+json
+  - Instead of using a standard MIME type in the Accept Header of the request, use a custom type/value.
+    ![useful image](/assets/images/WebAPIDesign/image14.png)<br/>
+  - Can include information in Accept Header for formatting too:
+    ![useful image](/assets/images/WebAPIDesign/image15.png)<br/>
+  - This type of versioning is becoming increasingly popular because the versioning is separate from the surface area of the API itself.
+  - Alternatively, you can create your own MIME type. The standard indicates you can begin the value with “vnd” (meaning vendor).
+    ![useful image](/assets/images/WebAPIDesign/image16.png)<br/>
+  - Pro(s):
+    - The API and resource versioning are packaged together
+    - Removes versioning from API, so clients don’t have to change
+  - Con(s):
+    - Adds complexity - adding headers isn’t easy on all platforms
+    - Can encourage increased versioning which causes more code churning
+- Request Header (version is included in header)
+  - x-ms-version: 2011-08-18
+  - Should be a header value that is only of value to your API
+  - Should begin with “x-”. That’s a name that most routers are going to ignore (indicates a user defined header value)<br/>
+    ![useful image](/assets/images/WebAPIDesign/image17.png)<br/>
+  - Common to use API Date instead of a number. What you use is up to you.<br/>
+    ![useful image](/assets/images/WebAPIDesign/image18.png)<br/>
+  - Pro(s):
+    - Separates versioning from API call signatures
+    - Not tied to resource versioning (e.g. Content Type)
+  - Con(s):
+    - Adds complexity - adding headers isn’t easy on all platforms
+- Which to choose?
+  - Versioning with Content Negotiation and Custom Headers are popular now
+  - Versioning with URI Components are more common
+  - Good recommendation: Start with URI Component versioning and see if it leads to too much technical debt. If it does, switch to something like Content Negotiation or Custom Headers.
+  - Remember to version your API from the very first release! Make this mandatory.
+  - Be sure to pick a versioning option that best matches the maturity level of your team and users.
+  - Be pragmatic. Version “just enough”.
+
+  
 
