@@ -7,3 +7,8 @@
   @extend #header;
   display: none;
 }
+
+ul li
+{
+    margin-bottom: 20px;
+}
