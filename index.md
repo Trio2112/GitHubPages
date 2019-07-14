@@ -4,6 +4,6 @@ Pluralsight is an awesome resource for developers. As I make my way through Plur
 
 [Git](git.md)
 
-[Entity Framework Core 2: Getting Started](EntityFrameworkCore2GettingStarted.dm)
+[Entity Framework Core 2: Getting Started](EntityFrameworkCore2GettingStarted.md)
 
 [Web API Design](WebAPIDesign.md)
