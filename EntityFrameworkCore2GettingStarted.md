@@ -41,9 +41,13 @@ get-help entityframeworkcore
     ```
  - An example of creating a one-to-one relationship code-first (using Samurai and SecretIdentity tables/entities):
    - Add a SamuraiId field to the SecretIdentity class:<br/>
-     ```public int SamuraiId { get; set; }```
+     ```
+     public int SamuraiId { get; set; }
+     ```
    - Add a SecretIdentity navigation property to the Samurai class:<br/>
-     ```public SecretIdentity SecretIdentity { get; set; }```
+     ```
+     public SecretIdentity SecretIdentity { get; set; }
+     ```
    - These two things are enough for EF Core to comprehend the relationship without anymore information from the developer.
    - Keep in mind that the dependent-end of a one-to-one relationship (in this example Samurai.SecretIdentity) is always optional, as far as EF Core is concerned. There’s no way to apply that constraint in the model or the database. If you want Samurai to require that a SecretIdentity be set, you’ll need to do it in business logic.<br/>
      ![useful image](/assets/images/EntityFrameworkCore2GettingStarted/image01.png)
