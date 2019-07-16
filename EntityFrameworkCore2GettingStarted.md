@@ -32,7 +32,7 @@ get-help entityframeworkcore
   - Create a mapping class (ie SamuraiBattle.cs) that has a SamuraiId and BattleId.
   - Change the Samurai class to have a SamuraiBattles property that returns a list of SamuraiBattle objects.
   - Change the Battle class to have a SamuraiBattles property that returns a list of SamuraiBattle objects.
-  - EF Core won’t be able to derive the correct db table relationships that should be set up. You need to add the following code to your DbContext class (SamuraiContext in this example) to guide EF Core to create the correct relationships:<br/>
+  - EF Core won’t be able to derive the correct db table relationships that should be set up. You need to add the following code to your DbContext class (SamuraiContext in this example) to guide EF Core to create the correct relationships:
     ```
        protected override void OnModelCreating(ModelBuilder modelBuilder)
        {
@@ -40,11 +40,11 @@ get-help entityframeworkcore
        }
     ```
  - An example of creating a one-to-one relationship code-first (using Samurai and SecretIdentity tables/entities):
-   - Add a SamuraiId field to the SecretIdentity class:<br/>
+   - Add a SamuraiId field to the SecretIdentity class:
      ```
      public int SamuraiId { get; set; }
      ```
-   - Add a SecretIdentity navigation property to the Samurai class:<br/>
+   - Add a SecretIdentity navigation property to the Samurai class:
      ```
      public SecretIdentity SecretIdentity { get; set; }
      ```
@@ -57,7 +57,9 @@ get-help entityframeworkcore
 - You can reverse engineer an existing database into a new DbContext and classes. Typically, this is a one-time procedure to give you a head start with your code when working with an existing database. At some point, EF Core will support updating the model with database changes, but that is not yet possible with EF Core 2.
 - It’s also not currently easy to begin by reverse engineering an existing database, then transition to migrations. Check out the following link for more info: https://cmatskas.com/ef-core-migrations-with-existing-database-schema-and-data
 - Example PowerShell command to run in Package Manager Console:
-  ```scaffold-dbcontext -provider Microsoft.EntityFrameworkCore.SqlServer  -connection "Data Source=(localdb)\MSSQLLocalDB; Initial Catalog=SamuraiLegacyData; Integrated Security=True;Connect Timeout=30;"```
+  ```
+  scaffold-dbcontext -provider Microsoft.EntityFrameworkCore.SqlServer  -connection "Data Source=(localdb)\MSSQLLocalDB; Initial Catalog=SamuraiLegacyData; Integrated Security=True;Connect Timeout=30;"
+  ```
   - **Important Note:** In order for the command to work, make sure that your model project is the default project selected in Package Manager Console. Also, make sure the model project is set as the Startup Project.
 - EF Core uses defaults when scaffolding the classes
   - Creates DbSet properties for every one of the entities
