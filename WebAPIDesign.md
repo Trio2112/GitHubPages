@@ -1,6 +1,12 @@
+<a id="top_anchor"></a>
 # Web Api Design
+- [Attributes of a Good API](#attributes-of-a-good-api_anchor)
+- [RESTful APIs (Representational State Transfer)](#restful-apis_anchor)
+- [Resource-based Architectures)](#resource-based-architectures_anchor)
+- [Principles of URI Design)](#principles-of-uri-design_anchor)
+- [Versioning)](#versioning_anchor)
 
-## Attributes of a Good API
+## Attributes of a Good API<a id="attributes-of-a-good-api_anchor"></a> <sup><sub>[(back to top)](#top_anchor)</sub></sup>
 - A good API should protect the server from the user and protect the user from the server. 
 - A good API should not surprise the users
 - A good API should balance what is good for the user and what is good for the server (eg caching aggressively and etags)
@@ -11,7 +17,7 @@
   
   For example, getting customers, then orders for those customers, then line items for those orders should be a natural progression through the API. It should be intuitive without having to go back and lookup for each call in the system how to get interrelated data.
   
-## RESTful APIs (Representational State Transfer)
+## RESTful APIs (Representational State Transfer)<a id="restful-apis_anchor"></a> <sup><sub>[(back to top)](#top_anchor)</sub></sup>
   
 - A common pattern for doing web APIs.
 - Uses URI endpoints, but dictates that the URIs should be resource-based. (ie “customers” instead of “getCustomers”. The verbs are http verbs (put, post, get, delete).
@@ -30,7 +36,7 @@
   - Community is split about the dogma of REST
   - There is a lot to learn from REST-style architecture, but being pragmatic is important too.
 
-## Resource-based Architectures
+## Resource-based Architectures<a id="resource-based-architectures_anchor"></a> <sup><sub>[(back to top)](#top_anchor)</sub></sup>
 
 - Resources are representations of real-world objects or entities (nouns).
 - Relationships between the resources are typically nested down a path of those resources. (ie /Customer/123/Orders/456/OrderItems/
@@ -38,7 +44,7 @@
 - URIs are paths to resources.
 - Querystrings are used for non-data elements. They don’t represent verbs. They can be used for different purposes like sorting or filtering.
 
-## Principles of URI Design
+## Principles of URI Design<a id="principles-of-uri-design_anchor"></a> <sup><sub>[(back to top)](#top_anchor)</sub></sup>
 
 - Nouns are good, verbs are bad
 - URIs should point at nouns
@@ -123,7 +129,7 @@
     - https://.../api/restartServer?isColdBoot=true
     - https://.../api/executeOrder66?includeYounglings=true
 
-## Versioning
+## Versioning<a id="versioning_anchor"></a> <sup><sub>[(back to top)](#top_anchor)</sub></sup>
 
 - Why version?
   - Publishing an API is not a trivial move
