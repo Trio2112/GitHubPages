@@ -2,9 +2,9 @@
 # Web Api Design
 - [Attributes of a Good API](#attributes-of-a-good-api_anchor)
 - [RESTful APIs (Representational State Transfer)](#restful-apis_anchor)
-- [Resource-based Architectures)](#resource-based-architectures_anchor)
-- [Principles of URI Design)](#principles-of-uri-design_anchor)
-- [Versioning)](#versioning_anchor)
+- [Resource-based Architectures](#resource-based-architectures_anchor)
+- [Principles of URI Design](#principles-of-uri-design_anchor)
+- [Versioning](#versioning_anchor)
 
 ## Attributes of a Good API<a id="attributes-of-a-good-api_anchor"></a> <sup><sub>[(back to top)](#top_anchor)</sub></sup>
 - A good API should protect the server from the user and protect the user from the server. 
