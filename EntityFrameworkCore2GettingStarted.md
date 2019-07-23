@@ -1,4 +1,5 @@
-# Entity Framework Core 2: Getting Started<a id="top_anchor"></a>
+<a id="top_anchor"></a>
+# Entity Framework Core 2: Getting Started
 - [Packages that need to be installed](#packages-that-need-to-be-installed_anchor)
 - [Migration Commands](#migration-commands_anchor)
 - [Relationships](#relationships_anchor)
