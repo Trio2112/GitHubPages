@@ -8,6 +8,7 @@
 <br/><br/>
 
 ## Attributes of a Good API<a id="attributes-of-a-good-api_anchor"></a> <sup><sub>[(back to top)](#top_anchor)</sub></sup>
+
 - A good API should protect the server from the user and protect the user from the server. 
 - A good API should not surprise the users
 - A good API should balance what is good for the user and what is good for the server (eg caching aggressively and etags)
@@ -18,6 +19,7 @@
   
   For example, getting customers, then orders for those customers, then line items for those orders should be a natural progression through the API. It should be intuitive without having to go back and lookup for each call in the system how to get interrelated data.
 <br/><br/>
+
 ## RESTful APIs (Representational State Transfer)<a id="restful-apis_anchor"></a> <sup><sub>[(back to top)](#top_anchor)</sub></sup>
   
 - A common pattern for doing web APIs.
