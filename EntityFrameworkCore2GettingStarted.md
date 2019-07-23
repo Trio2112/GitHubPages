@@ -167,44 +167,44 @@ get-help entityframeworkcore
         newContextInstance.SaveChanges();
       }
       ```
-  - Deleting objects:
-    - DbContext can only delete objects it is aware of, ie, already tracking.
-    - Example:
-      ```
-      _context.Samurais.Remove(samurai);
-      _context.Remove(samurai);
-      _context.Samurais.Remove(_context.Samurais.Find(1));
-      ```
-    - Example of deleting in batch:
-      ```
-      _context.Samurais.RemoveRange(samurais);
-      _context.SaveChanges();
-      ```
-    - Example of disconnected deletes:
-      ```
-      contextNewAppInstance.Samurais.Remove(samurai);
-      contextNewAppInstance.SaveChanges();
-      ```
-    - If you don't already have the object you want to delete then you have to first query the database with the Find method, so that you can pass it into the Remove method it to delete it.
-      ```
-      var samurai = _context.Samurais.Find(samuraiId);
-      _context.Remove(samurai);
-      _context.SaveChanges();
-      ```
-    - **Annoying:** Why isn't there a DbSet.Delete(int) method like there is DbSet.Find(int)? It doesn’t exist yet, and it's silly.<br/>
-      Alternative idea, use a stored procedure:
-      ```
-      _context.Database.ExecuteSqlCommand(“exec DeleteById {0}”, samuraiId);
-      ```
-    - EF Core's raw SQL features:<br/>
-      ![useful image](/assets/images/EntityFrameworkCore2GettingStarted/image05.png)
-    - Other resources:
-      - Entity Framework Core on GitHub: http://github.com/aspnet/entityframework
-      - EF Core Roadmap: http://bit.ly/efcoreroadmap
-      - EF Core Documentation: http://docs.efproject.net
-      - Bulk Operations Commands Explanation by Richie Rump: https://www.brentozar.com/archive/2017/05/case-entity-framework-cores-odd-sql/
-      - BreezeJS and Breeze.NET: http://www.getbreezenow.com
-      - Trackable entities: http://trackableentities.github.io
+- Deleting objects:
+  - DbContext can only delete objects it is aware of, ie, already tracking.
+  - Example:
+    ```
+    _context.Samurais.Remove(samurai);
+    _context.Remove(samurai);
+    _context.Samurais.Remove(_context.Samurais.Find(1));
+    ```
+  - Example of deleting in batch:
+    ```
+    _context.Samurais.RemoveRange(samurais);
+    _context.SaveChanges();
+    ```
+  - Example of disconnected deletes:
+    ```
+    contextNewAppInstance.Samurais.Remove(samurai);
+    contextNewAppInstance.SaveChanges();
+    ```
+  - If you don't already have the object you want to delete then you have to first query the database with the Find method, so that you can pass it into the Remove method it to delete it.
+    ```
+    var samurai = _context.Samurais.Find(samuraiId);
+    _context.Remove(samurai);
+    _context.SaveChanges();
+    ```
+  - **Annoying:** Why isn't there a DbSet.Delete(int) method like there is DbSet.Find(int)? It doesn’t exist yet, and it's silly.<br/>
+    Alternative idea, use a stored procedure:
+    ```
+    _context.Database.ExecuteSqlCommand(“exec DeleteById {0}”, samuraiId);
+    ```
+  - EF Core's raw SQL features:<br/>
+    ![useful image](/assets/images/EntityFrameworkCore2GettingStarted/image05.png)
+- Other resources:
+  - Entity Framework Core on GitHub: http://github.com/aspnet/entityframework
+  - EF Core Roadmap: http://bit.ly/efcoreroadmap
+  - EF Core Documentation: http://docs.efproject.net
+  - Bulk Operations Commands Explanation by Richie Rump: https://www.brentozar.com/archive/2017/05/case-entity-framework-cores-odd-sql/
+  - BreezeJS and Breeze.NET: http://www.getbreezenow.com
+  - Trackable entities: http://trackableentities.github.io
 
 ## Querying and Saving Related Data<a id="querying-and-saving-related-data_anchor"></a> <sup><sub>[(back to top)](#git)</sub></sup>
 
