@@ -6,6 +6,7 @@
 - [Principles of URI Design](#principles-of-uri-design_anchor)
 - [Versioning](#versioning_anchor)
 <br/><br/>
+
 ## Attributes of a Good API<a id="attributes-of-a-good-api_anchor"></a> <sup><sub>[(back to top)](#top_anchor)</sub></sup>
 - A good API should protect the server from the user and protect the user from the server. 
 - A good API should not surprise the users
@@ -36,6 +37,7 @@
   - Community is split about the dogma of REST
   - There is a lot to learn from REST-style architecture, but being pragmatic is important too.
 <br/><br/>
+
 ## Resource-based Architectures<a id="resource-based-architectures_anchor"></a> <sup><sub>[(back to top)](#top_anchor)</sub></sup>
 
 - Resources are representations of real-world objects or entities (nouns).
@@ -44,6 +46,7 @@
 - URIs are paths to resources.
 - Querystrings are used for non-data elements. They don’t represent verbs. They can be used for different purposes like sorting or filtering.
 <br/><br/>
+
 ## Principles of URI Design<a id="principles-of-uri-design_anchor"></a> <sup><sub>[(back to top)](#top_anchor)</sub></sup>
 
 - Nouns are good, verbs are bad
@@ -129,6 +132,7 @@
     - https://.../api/restartServer?isColdBoot=true
     - https://.../api/executeOrder66?includeYounglings=true
 <br/><br/>
+
 ## Versioning<a id="versioning_anchor"></a> <sup><sub>[(back to top)](#top_anchor)</sub></sup>
 
 - Why version?
