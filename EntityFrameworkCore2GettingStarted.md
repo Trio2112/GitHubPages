@@ -199,3 +199,152 @@ get-help entityframeworkcore
       - Trackable entities: http://trackableentities.github.io
 
 ## Querying and Saving Related Data
+
+- Inserting Related Data
+  - Example 1:
+    ```
+    var samurai = _context.Samurais.First();
+    samurai.Quotes.Add(new Quote { Text = “I’m here to save you.” });
+    _context.SaveChanges();
+    ```
+  - Example using a disconnected data set (not being tracked by the context):
+    ```
+    // NOTE: Setting the foreign key is the best and simplest path to success!
+    private static void AddChildToExistingObjectWhileNotTracked(int samuraiId)
+    {
+      var quote = new Quote
+      {
+        Text = “Now that I saved you, will you feed me dinner?”,
+        SamuraiId = samuraiId;
+      };
+      using (var newContext = new SamuraiContext())
+      {
+        newContext.Quotes.Add(quote);
+        newContext.SaveChanges();
+      }
+    }
+    ```
+- Methods to Load Related Data
+  - Terms:
+    - **Explicit Loading**: Request related data of objects already in memory
+    - **Lazy Loading**: On-the-fly retrieval of related data -- This is not currently supported by EF2
+    - **Eager Loading**: Including related objects in the query
+  - Eager loading examples:
+    - Example 1, eager loading to include children:
+      ```
+      var samuraiWithQuotes = _context.Samurais.Include(s => s.Quotes).ToList();
+      ```
+    - Example 2, eager loading to include children and grandchildren:
+      ```
+      var samuraiWithQuotesAndTranslations = 
+        _context.Samurais
+        .Include(s => s.Quotes)
+        .ThenInclude(q => q.Translations);
+      ```
+    - Example 3, include just grandchildren:
+      ```
+      _context.Samurais.Include(s => s.Quotes.Translations);
+      ```
+    - Example 4, Include different children:
+      ```
+      _context.Samurais.Include(s => s.Quotes).Include(s => s.SecretIdentity);
+      ```
+    - **IMPORTANT: The Include statement always loads the entire set of related objects.**
+  - Query Projections: Defining the shape of query results
+    - Use LINQ’s select method to specify which properties of an object you want returned.
+    - If you want to return more than a single property, then you’ll need to project the desired properties into an anonymous type.
+    - Example 1:
+      ```
+      var someProperties = _context.Samurais.Select(
+        s => s.new {
+          s.Id,
+          s.Name,
+          s.Quotes
+        }
+      ).ToList();
+      ```
+    - Example 2:
+      ```
+      var someProperties = _context.Samurais.Select(
+        s => new {
+          s.Id,
+          s.Name,
+          HappyQuotes = s.Quotes.Where(q => q.Text.Contains(“happy”))
+        }
+      ).ToList();
+      ```
+    - **NOTE:** If you want a full, related entity you should be able to use projections to get it, something like:
+      ```
+      var samuraisWithHappyQuotes = 
+        _context.Samurais.Select(
+          s => new {
+            Samurai = s,
+            Quotes = s.Quotes.Where(q => q.Text.Contains(“happy”)).ToList()
+          }
+        ).ToList();
+      ```
+      **HOWEVER**, this does not work using projections due to an EF Core 2 bug.<br/>
+      **INSTEAD**, when you want to filter related objects when you want full types, you have to execute two separate queries.
+      ```
+      var samurais = _context.Samurais.ToList();
+      var happyQuotes = _context.Quotes.Where(q => q.Text.Contains(“happy”)).ToList();
+      ```
+      When you do this with the same context instance, EF Core will return the related entity (in this case, samurai).
+  - Using Related Data to Filter Objects
+    ```
+    var samurais = _context.Samurais.Where(
+      s => s.Quotes.Any(
+        q => q.Text.Contains(“happy”)
+      )
+    ).ToList();
+    ```
+  - Modifying Related Data
+    - DbContext is aware of all changes made to objects that it is tracking.
+      - Example 1, updating related data:
+        ```
+        var samurai = _context.Samurais.Include(s => s.Quotes).FirstOrDefault();
+        samurai.Quotes[0].Text += "Did you hear that?";
+        _context.SaveChanges();
+        ```
+     - Example 2, deleting related data:
+       ```
+       var samurai = _context.Samurais.Include(s => s.Quotes).FirstOrDefault();
+       _context.Quotes.Remove(samuri.Quotes[2]);
+       _context.SaveChanges();
+       ```
+  - DbContext has no clue about history of objects before they are attached.
+    - Example 1, updating related data:<br/>
+      NOTE: The following will result in SQL statements to update all related entities in the graph, even if their data didn’t really change. To update only the quote entity, use the .Entry() method of dbContext.
+      ```
+      var samurai = _context.Samurais.Include(s => s.Quotes).FirstOrDefault();
+      var quote = samurai.Quotes[0];
+      quote.Text += “ Did you hear that?”;
+      using (var newContext = new SamuraiContext())
+      {
+        newContext.Quotes.Update(quote);
+        newContext.SaveChanges();
+      }
+      ```
+    - Example 2, updating data with the Entry method:
+      ```
+      var samurai = _context.Samurais.Include(s => s.Quotes).FirstOrDefault();
+      var quote = samurai.Quotes[0];
+      quote.Text += "Did you hear that?";
+      using (var newContext = new SamuraiContext())
+      {
+        newContext.Entry(quote).State = EntityState.Modified;
+        newContext.SaveChanges();
+      }
+      ```
+## Other items
+- Pulling the connection string from app.config:
+  ```
+  protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+  {
+    var connectionString = ConfigurationManager.ConnectionStrings[“MyConnString”].ToString();
+    optionsBuilder
+    .UseLoggerFactory(MyConsoleLoggerFactory)
+    .EnableSensitiveDataLogging(true)
+    .UseSqlServer(connectionString);
+  }
+  ```
