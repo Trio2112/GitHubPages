@@ -5,7 +5,7 @@
 - [Resource-based Architectures](#resource-based-architectures_anchor)
 - [Principles of URI Design](#principles-of-uri-design_anchor)
 - [Versioning](#versioning_anchor)
-
+<br/><br/>
 ## Attributes of a Good API<a id="attributes-of-a-good-api_anchor"></a> <sup><sub>[(back to top)](#top_anchor)</sub></sup>
 - A good API should protect the server from the user and protect the user from the server. 
 - A good API should not surprise the users
@@ -16,7 +16,7 @@
   Developers who are consuming the APIs should be able to see how to use them in a fairly simple way. As they look at what calls are available, it should be natural to take the next step and get more data or get more services in the application.
   
   For example, getting customers, then orders for those customers, then line items for those orders should be a natural progression through the API. It should be intuitive without having to go back and lookup for each call in the system how to get interrelated data.
-  
+<br/><br/>
 ## RESTful APIs (Representational State Transfer)<a id="restful-apis_anchor"></a> <sup><sub>[(back to top)](#top_anchor)</sub></sup>
   
 - A common pattern for doing web APIs.
@@ -35,7 +35,7 @@
   - To become qualified “REST” tends to be difficult -- requires too much time to follow the letter of the law rather than the spirit of the law
   - Community is split about the dogma of REST
   - There is a lot to learn from REST-style architecture, but being pragmatic is important too.
-
+<br/><br/>
 ## Resource-based Architectures<a id="resource-based-architectures_anchor"></a> <sup><sub>[(back to top)](#top_anchor)</sub></sup>
 
 - Resources are representations of real-world objects or entities (nouns).
@@ -43,7 +43,7 @@
 - You should think of these as hierarchies of information, not necessarily as relational models, because the kind of data you are going to be dealing with is going to be hierarchical, not relational models like you would see in database tables.
 - URIs are paths to resources.
 - Querystrings are used for non-data elements. They don’t represent verbs. They can be used for different purposes like sorting or filtering.
-
+<br/><br/>
 ## Principles of URI Design<a id="principles-of-uri-design_anchor"></a> <sup><sub>[(back to top)](#top_anchor)</sub></sup>
 
 - Nouns are good, verbs are bad
@@ -128,7 +128,7 @@
     - https://.../api/calculateTax?state=GA&total=149.99
     - https://.../api/restartServer?isColdBoot=true
     - https://.../api/executeOrder66?includeYounglings=true
-
+<br/><br/>
 ## Versioning<a id="versioning_anchor"></a> <sup><sub>[(back to top)](#top_anchor)</sub></sup>
 
 - Why version?
