@@ -345,7 +345,9 @@ get-help entityframeworkcore
         newContext.SaveChanges();
       }
       ```
+
 ## Other items<a id="other-items_anchor"></a> <sup><sub>[(back to top)](#top_anchor)</sub></sup>
+
 - Pulling the connection string from app.config:
   ```
   protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
